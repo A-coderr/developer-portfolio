@@ -57,6 +57,29 @@ describe("SelectedWork", () => {
     }
   });
 
+  it("links the asset platform card to its case-study route with the current CTA text", () => {
+    const assetPlatformProject = getProjectBySlug("asset-platform");
+
+    expect(assetPlatformProject).toBeDefined();
+
+    render(<SelectedWork />);
+
+    const assetPlatformArticle = getProjectArticle(
+      "Digital Asset Management Platform",
+    );
+
+    expect(
+      within(assetPlatformArticle).getByText(
+        assetPlatformProject!.preview.summary,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      within(assetPlatformArticle).getByRole("link", {
+        name: `${assetPlatformProject!.preview.ctaLabel} for ${assetPlatformProject!.title}`,
+      }),
+    ).toHaveAttribute("href", "/work/asset-platform");
+  });
+
   it("links the SKIF project card to its case-study route with the current CTA text", () => {
     const skifProject = getProjectBySlug("skif-karate-canada");
 
@@ -94,6 +117,7 @@ describe("SelectedWork", () => {
       }),
     ).toHaveAttribute("href", "/work/portfolio-v1");
   });
+
   it("keeps Neon Chaser first in the project sequence", () => {
     render(<SelectedWork />);
 
@@ -132,7 +156,7 @@ describe("SelectedWork", () => {
 
     const platform = getProjectArticle("Digital Asset Management Platform");
     const image = within(platform).getByRole("img", {
-      name: "Screenshot of the Digital Asset Management Platform interface.",
+      name: "Sanitized concept illustration representing a browser-based digital asset management platform with 3D asset previewing",
     });
 
     expect(image).toHaveAttribute(

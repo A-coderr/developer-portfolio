@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { SamePageSmoothScroll } from "@/components/layout/SamePageSmoothScroll";
+import { AssetPlatformCaseStudy } from "@/components/projects/AssetPlatformCaseStudy";
 import { CaseStudyShell } from "@/components/projects/CaseStudyShell";
 import { NeonChaserCaseStudy } from "@/components/projects/NeonChaserCaseStudy";
 import { PortfolioV1CaseStudy } from "@/components/projects/PortfolioV1CaseStudy";
 import { SkifKarateCaseStudy } from "@/components/projects/SkifKarateCaseStudy";
+import { assetPlatformCaseStudyMetadata } from "@/data/asset-platform-case-study";
 import { neonChaserCaseStudyMetadata } from "@/data/neon-chaser-case-study";
-import { allProjects, getProjectBySlug, getProjectHref, type PortfolioProject } from "@/data/projects";
+import {
+  allProjects,
+  getProjectBySlug,
+  getProjectHref,
+  type PortfolioProject,
+} from "@/data/projects";
 import { portfolioV1CaseStudyMetadata } from "@/data/portfolio-v1-case-study";
 import { siteConfig } from "@/data/site";
 import { skifCaseStudyMetadata } from "@/data/skif-case-study";
@@ -17,6 +24,10 @@ type WorkProjectPageProps = {
 };
 
 function getProjectMetadata(project: PortfolioProject) {
+  if (project.slug === "asset-platform") {
+    return assetPlatformCaseStudyMetadata;
+  }
+
   if (project.slug === "neon-chaser") {
     return neonChaserCaseStudyMetadata;
   }
@@ -96,7 +107,9 @@ export default async function WorkProjectPage({ params }: WorkProjectPageProps) 
   }
 
   const caseStudy =
-    project.slug === "neon-chaser" ? (
+    project.slug === "asset-platform" ? (
+      <AssetPlatformCaseStudy project={project} />
+    ) : project.slug === "neon-chaser" ? (
       <NeonChaserCaseStudy project={project} />
     ) : project.slug === "skif-karate-canada" ? (
       <SkifKarateCaseStudy project={project} />
