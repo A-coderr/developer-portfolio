@@ -1,6 +1,12 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import {
+  assetPlatformCaseStudyMetadata,
+  assetPlatformContextFacts,
+  assetPlatformHeroLabels,
+  previewerCapabilities,
+} from "@/data/asset-platform-case-study";
+import {
   neonChaserCaseStudyMetadata,
   neonChaserHeroLabels,
   neonChaserLinks,
@@ -18,7 +24,7 @@ import {
   portfolioV1Comparison,
   portfolioV1HeroLabels,
 } from "@/data/portfolio-v1-case-study";
-import { allProjects, getProjectBySlug } from "@/data/projects";
+import { allProjects } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 import {
   skifCaseStudyLinks,
@@ -37,12 +43,6 @@ async function renderCaseStudy(slug: string) {
   render(page);
 }
 
-function getProjectOrFail(slug: string) {
-  const project = getProjectBySlug(slug);
-
-  expect(project).toBeDefined();
-  return project!;
-}
 
 describe("WorkProjectPage", () => {
   it("generates static params for the supported project routes", () => {
@@ -347,21 +347,78 @@ describe("WorkProjectPage", () => {
     ).toHaveAttribute("href", "/#projects");
   });
 
-  it("renders the generic shell for projects without full case studies yet", async () => {
-    const assetPlatform = getProjectOrFail("asset-platform");
-
+  it("renders the Digital Asset Management Platform case study with sanitized context", async () => {
     await renderCaseStudy("asset-platform");
 
     expect(
-      screen.getByRole("heading", { level: 1, name: assetPlatform.title }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: "Digital Asset Management Platform",
+      }),
     ).toBeInTheDocument();
-    expect(screen.getByText(assetPlatform.preview.summary)).toBeInTheDocument();
-    expect(screen.getByText("Full case study coming next")).toBeInTheDocument();
+    expect(
+      screen.getByText("SOFTWARE ENGINEERING"),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Sanitized concept visual/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: "Sanitized concept illustration representing a browser-based digital asset management platform with 3D asset previewing",
+      }),
+    ).toHaveAttribute("src", expect.stringContaining("asset-management.webp"));
+    expect(screen.getByText("~40 Internal Users")).toBeInTheDocument();
+
+    const technicalLabels = screen.getByRole("list", {
+      name: "Technical labels",
+    });
+
+    for (const label of assetPlatformHeroLabels) {
+      expect(within(technicalLabels).getByText(label)).toBeInTheDocument();
+    }
+
+    for (const fact of assetPlatformContextFacts) {
+      expect(screen.getByText(fact.label)).toBeInTheDocument();
+      expect(screen.getByText(fact.value)).toBeInTheDocument();
+    }
+
+    for (const heading of [
+      "A shared home for production assets",
+      "Previewing 3D assets directly in the browser",
+      "What this project demonstrates",
+    ]) {
+      expect(
+        screen.getByRole("heading", { level: 2, name: heading }),
+      ).toBeInTheDocument();
+    }
+
+    expect(
+      screen.getByText(/Three\.js-based asset previewer/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/migration tooling/i)).toBeInTheDocument();
+    expect(screen.getByText(/Public demo unavailable/i)).toBeInTheDocument();
+    expect(screen.queryByText("Full case study coming next")).not.toBeInTheDocument();
+
+    for (const backLink of screen.getAllByRole("link", {
+      name: /Back to projects/i,
+    })) {
+      expect(backLink).toHaveAttribute("href", "/#projects");
+    }
+  });
+
+  it("renders asset platform preview capabilities without exposing a public demo", async () => {
+    await renderCaseStudy("asset-platform");
+
+    expect(screen.getByText("Previewer capabilities")).toBeInTheDocument();
+
+    for (const capability of previewerCapabilities) {
+      expect(screen.getByText(capability)).toBeInTheDocument();
+    }
+
+    expect(
+      screen.queryByRole("link", { name: /public demo/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("generates route metadata from the appropriate project details", async () => {
-    const assetPlatform = getProjectOrFail("asset-platform");
-
     await expect(
       generateMetadata({ params: Promise.resolve({ slug: "neon-chaser" }) }),
     ).resolves.toMatchObject({
@@ -401,8 +458,8 @@ describe("WorkProjectPage", () => {
     await expect(
       generateMetadata({ params: Promise.resolve({ slug: "asset-platform" }) }),
     ).resolves.toMatchObject({
-      title: `${assetPlatform.title} | Anzhelika Kostyuk`,
-      description: assetPlatform.preview.summary,
+      title: assetPlatformCaseStudyMetadata.title,
+      description: assetPlatformCaseStudyMetadata.description,
       alternates: { canonical: "/work/asset-platform" },
     });
   });

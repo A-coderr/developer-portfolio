@@ -105,7 +105,7 @@ export const selectedProjects: readonly PortfolioProject[] = [
       media: {
         kind: "image",
         src: "/images/projects/asset-management.webp",
-        alt: "Screenshot of the Digital Asset Management Platform interface.",
+        alt: "Sanitized concept illustration representing a browser-based digital asset management platform with 3D asset previewing",
         width: 1672,
         height: 941,
         sizes: teaserMediaSizes,
