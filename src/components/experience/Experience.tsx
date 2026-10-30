@@ -5,7 +5,7 @@ export function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="mx-auto max-w-7xl px-6 pb-20 pt-6 sm:px-8 lg:px-12 lg:pb-28 lg:pt-12"
+      className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28"
     >
       <div className="max-w-3xl">
         <p className="font-mono text-xs font-medium uppercase text-muted">
@@ -38,7 +38,7 @@ export function Experience() {
                 {entry.current ? (
                   <span
                     aria-hidden="true"
-                    className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent lg:mt-1.5"
+                    className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-positive lg:mt-1.5"
                   />
                 ) : null}
               </div>

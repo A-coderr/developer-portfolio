@@ -17,7 +17,7 @@ export function About() {
       aria-labelledby="about-title"
       className="mx-auto max-w-7xl px-6 pb-20 pt-6 sm:px-8 lg:px-12 lg:pb-28 lg:pt-12"
     >
-      <div className="overflow-hidden rounded-2xl border border-accent bg-surface">
+      <div className="overflow-hidden rounded-2xl border border-accent/40 bg-surface">
         <div className="grid gap-8 p-5 sm:p-7 md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-center lg:gap-8">
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-medium uppercase text-muted">
@@ -47,7 +47,7 @@ export function About() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <p className="font-mono text-xs font-medium uppercase text-muted">
+              <p className="font-mono text-xs font-medium uppercase text-positive">
                 CURRENT FOCUS
               </p>
               <ul className="flex flex-wrap gap-x-3 gap-y-2 text-sm font-medium text-foreground sm:text-base">
@@ -55,7 +55,7 @@ export function About() {
                   <li key={item} className="inline-flex items-center gap-3">
                     <span>{item}</span>
                     {index < focusItems.length - 1 ? (
-                      <span aria-hidden="true" className="text-accent">
+                      <span aria-hidden="true" className="text-positive">
                         ·
                       </span>
                     ) : null}

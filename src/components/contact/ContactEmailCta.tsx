@@ -44,7 +44,7 @@ export function ContactEmailCta({
         <button
           type="button"
           onClick={handleCopyEmail}
-          className="inline-flex w-fit items-center rounded-sm border border-border/70 px-3 py-2 text-sm font-medium text-foreground outline-none interactive-transition hover:border-accent hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="inline-flex w-fit items-center rounded-sm border border-control-border px-3 py-2 text-sm font-medium text-foreground outline-none interactive-transition hover:bg-accent-subtle focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           Copy email
         </button>

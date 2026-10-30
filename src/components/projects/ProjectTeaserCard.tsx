@@ -20,7 +20,7 @@ const emphasisStyles = {
     cta: "text-foreground hover:text-accent",
   },
   quiet: {
-    article: "border-border/40 bg-surface/80",
+    article: "border-border/40 bg-surface",
     label: "text-muted",
     cta: "text-muted hover:text-accent",
   },
@@ -34,7 +34,8 @@ export function ProjectTeaserCard({ project }: ProjectTeaserCardProps) {
   return (
     <article
       aria-labelledby={titleId}
-      className={`project-teaser-card group rounded-lg border interactive-transition hover:border-border ${styles.article}`}
+      data-theme="dark"
+      className={`project-teaser-card group rounded-lg border text-foreground interactive-transition hover:border-accent ${styles.article}`}
     >
       {preview.media ? <ProjectMedia media={preview.media} /> : null}
 
@@ -62,7 +63,7 @@ export function ProjectTeaserCard({ project }: ProjectTeaserCardProps) {
           <Link
             href={getProjectHref(project)}
             aria-label={`${preview.ctaLabel} for ${project.title}`}
-            className={`mt-5 inline-flex items-center gap-2 rounded-sm font-mono text-xs font-medium uppercase outline-none interactive-transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background ${styles.cta}`}
+            className={`mt-5 inline-flex items-center gap-2 rounded-sm font-mono text-xs font-medium uppercase outline-none interactive-transition focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background ${styles.cta}`}
           >
             <span>{preview.ctaLabel}</span>
             <span

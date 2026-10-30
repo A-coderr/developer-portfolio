@@ -15,9 +15,10 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="mx-auto max-w-7xl px-6 pb-16 pt-6 sm:px-8 lg:px-12 lg:pb-24 lg:pt-12"
+      data-theme="feature"
+      className="bg-background text-foreground"
     >
-      <div className="grid gap-10 border-t border-border/70 pt-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:gap-16 lg:pt-14">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:gap-16 lg:px-12 lg:py-24">
         <div>
           <p className="font-mono text-xs font-medium uppercase text-muted">
             CONTACT
@@ -39,7 +40,7 @@ export function Contact() {
 
           <ContactEmailCta
             link={contactLinks.email}
-            className="group inline-flex items-center gap-2 rounded-sm text-base font-semibold text-accent outline-none interactive-transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+            className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-action px-5 text-base font-semibold text-on-action outline-none interactive-transition hover:bg-action-hover active:bg-action focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           >
             <span>Get in touch</span>
             <span
@@ -62,7 +63,7 @@ export function Contact() {
                     rel="noopener noreferrer"
                     aria-label={link.label}
                     title={link.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground outline-none interactive-transition hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground outline-none interactive-transition hover:bg-accent-subtle focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                   >
                     <Icon className="h-6 w-6" />
                   </a>

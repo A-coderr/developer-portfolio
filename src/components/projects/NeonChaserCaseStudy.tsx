@@ -44,7 +44,7 @@ function CaseStudyHero({ project }: NeonChaserCaseStudyProps) {
     <section className="mx-auto max-w-7xl px-6 pb-14 pt-10 sm:px-8 lg:px-12 lg:pb-20 lg:pt-14">
       <Link
         href="/#projects"
-        className="inline-flex items-center rounded-sm font-mono text-xs font-medium uppercase text-muted outline-none interactive-transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+        className="inline-flex items-center rounded-sm font-mono text-xs font-medium uppercase text-muted outline-none interactive-transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         &#8592; Back to projects
       </Link>
@@ -106,7 +106,7 @@ export function NeonChaserCaseStudy({ project }: NeonChaserCaseStudyProps) {
       <article>
         <CaseStudyHero project={project} />
 
-        <section className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-12">
+        <section data-theme="light" className="mx-auto max-w-7xl rounded-2xl bg-background px-6 py-8 text-foreground sm:px-8 lg:px-12">
           <MetadataList items={neonChaserSnapshot} />
         </section>
 

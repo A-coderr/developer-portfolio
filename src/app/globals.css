@@ -1,12 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0d10;
-  --surface: #12151a;
-  --foreground: #f4f2ed;
-  --muted: #a6abb3;
-  --border: #2a2f37;
-  --accent: #ff6846;
+  --brand-ink: #171B2B;
+  --brand-ivory: #F6F2EA;
+  --brand-lavender: #8D9BFF;
+  --brand-coral: #FF987D;
+  --brand-mint: #BEE5C0;
+}
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: var(--brand-ink);
+  --surface: color-mix(in srgb, var(--brand-ink) 94%, var(--brand-ivory));
+  --foreground: var(--brand-ivory);
+  --muted: color-mix(in srgb, var(--brand-ivory) 70%, var(--brand-ink));
+  --border: color-mix(in srgb, var(--brand-ivory) 24%, var(--brand-ink));
+  --control-border: color-mix(in srgb, var(--brand-ivory) 55%, var(--brand-ink));
+  --accent: var(--brand-lavender);
+  --accent-subtle: color-mix(in srgb, var(--brand-lavender) 14%, var(--brand-ink));
+  --positive: var(--brand-mint);
+  --action: var(--brand-coral);
+  --action-hover: color-mix(in srgb, var(--brand-coral) 80%, var(--brand-ivory));
+  --on-action: var(--brand-ink);
+  --focus: var(--brand-lavender);
+}
+
+/* Contexts reset semantic roles so nested dark cards can sit on light sections. */
+[data-theme="light"],
+[data-theme="feature"] {
+  color-scheme: light;
+  --background: var(--brand-ivory);
+  --surface: color-mix(in srgb, var(--brand-ivory) 94%, var(--brand-ink));
+  --foreground: var(--brand-ink);
+  --muted: color-mix(in srgb, var(--brand-ink) 72%, var(--brand-ivory));
+  --border: color-mix(in srgb, var(--brand-ink) 24%, var(--brand-ivory));
+  --control-border: color-mix(in srgb, var(--brand-ink) 65%, var(--brand-ivory));
+  --accent: color-mix(in srgb, var(--brand-ink) 60%, var(--brand-lavender));
+  --accent-subtle: color-mix(in srgb, var(--brand-lavender) 25%, var(--brand-ivory));
+  --positive: color-mix(in srgb, var(--brand-ink) 80%, var(--brand-mint));
+  --action: var(--brand-ink);
+  --action-hover: color-mix(in srgb, var(--brand-ink) 80%, var(--brand-lavender));
+  --on-action: var(--brand-ivory);
+  --focus: var(--brand-ink);
+}
+
+[data-theme="feature"] {
+  --background: var(--brand-lavender);
+  --surface: color-mix(in srgb, var(--brand-lavender) 85%, var(--brand-ivory));
+  --muted: var(--brand-ink);
+  --border: color-mix(in srgb, var(--brand-ink) 35%, var(--brand-lavender));
+  --control-border: var(--brand-ink);
+  --accent: var(--brand-ink);
+  --accent-subtle: color-mix(in srgb, var(--brand-ink) 10%, var(--brand-lavender));
+  --positive: var(--brand-ink);
 }
 
 @theme inline {
@@ -16,6 +63,14 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-positive: var(--positive);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-on-action: var(--on-action);
+  --color-control-border: var(--control-border);
+  --color-focus: var(--focus);
+  --color-shadow: var(--brand-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -36,7 +91,7 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--foreground);
   color: var(--background);
 }
 
