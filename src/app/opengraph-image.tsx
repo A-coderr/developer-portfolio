@@ -1,3 +1,4 @@
+import { artworkColors } from "@/data/palette";
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/site";
 
@@ -14,8 +15,8 @@ export default function OpenGraphImage() {
       <div
         style={{
           alignItems: "center",
-          background: "#0B0D10",
-          color: "#F4F2ED",
+          background: artworkColors.background,
+          color: artworkColors.foreground,
           display: "flex",
           fontFamily: "Arial, sans-serif",
           height: "100%",
@@ -27,7 +28,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
           <div
             style={{
-              color: "#FF6846",
+              color: artworkColors.accent,
               fontSize: 24,
               fontWeight: 700,
               textTransform: "uppercase",
@@ -38,10 +39,10 @@ export default function OpenGraphImage() {
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>
             Anzhelika Kostyuk
           </div>
-          <div style={{ color: "#A6ABB3", fontSize: 34, lineHeight: 1.3 }}>
+          <div style={{ color: artworkColors.foreground, fontSize: 34, lineHeight: 1.3 }}>
             Web applications, interactive 3D, and Unity/C# game systems.
           </div>
-          <div style={{ color: "#A6ABB3", fontSize: 22 }}>{siteConfig.url}</div>
+          <div style={{ color: artworkColors.detail, fontSize: 22 }}>{siteConfig.url}</div>
         </div>
       </div>
     ),

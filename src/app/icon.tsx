@@ -1,3 +1,4 @@
+import { artworkColors } from "@/data/palette";
 import { ImageResponse } from "next/og";
 
 export const size = {
@@ -12,8 +13,8 @@ export default function Icon() {
       <div
         style={{
           alignItems: "center",
-          background: "#0B0D10",
-          color: "#FF6846",
+          background: artworkColors.background,
+          color: artworkColors.accent,
           display: "flex",
           fontFamily: "Arial, sans-serif",
           fontSize: 148,

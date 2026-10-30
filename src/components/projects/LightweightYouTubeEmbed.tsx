@@ -30,7 +30,7 @@ export function LightweightYouTubeEmbed({
           <button
             type="button"
             onClick={() => setIsLoaded(true)}
-            className="group flex h-full w-full flex-col items-start justify-end bg-background p-6 text-left outline-none interactive-transition hover:bg-surface focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:p-8"
+            className="group flex h-full w-full flex-col items-start justify-end bg-background p-6 text-left outline-none interactive-transition hover:bg-surface focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:p-8"
             aria-label="Play Neon Chaser trailer"
           >
             <span className="font-mono text-xs font-medium uppercase text-accent">
@@ -56,7 +56,7 @@ export function LightweightYouTubeEmbed({
           href={externalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-fit items-center gap-2 rounded-sm font-mono text-xs font-medium uppercase text-foreground outline-none interactive-transition hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="inline-flex w-fit items-center gap-2 rounded-sm font-mono text-xs font-medium uppercase text-foreground outline-none interactive-transition hover:text-accent focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           Open on YouTube <span aria-hidden="true">&#8599;</span>
         </a>

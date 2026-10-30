@@ -49,15 +49,15 @@ export function ExternalCaseStudyLink({
 }: CaseStudyLinkProps) {
   const className =
     variant === "primary"
-      ? "border-accent bg-accent text-background hover:bg-[#ff7a5d]"
-      : "border-border/80 text-foreground hover:border-accent hover:text-accent";
+      ? "border-action bg-action text-on-action hover:bg-action-hover active:bg-action"
+      : "border-control-border text-foreground hover:border-accent hover:text-accent";
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex h-11 items-center justify-center rounded-full border px-5 text-sm font-semibold outline-none interactive-transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background ${className}`}
+      className={`inline-flex h-11 items-center justify-center rounded-full border px-5 text-sm font-semibold outline-none interactive-transition focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background ${className}`}
     >
       {children}
     </a>
@@ -68,7 +68,7 @@ export function AnchorCaseStudyLink({ children, href }: CaseStudyLinkProps) {
   return (
     <a
       href={href}
-      className="inline-flex h-11 items-center justify-center rounded-full border border-border/80 px-5 text-sm font-semibold text-foreground outline-none interactive-transition hover:border-accent hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+      className="inline-flex h-11 items-center justify-center rounded-full border border-control-border px-5 text-sm font-semibold text-foreground outline-none interactive-transition hover:border-accent hover:text-accent focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
     >
       {children}
     </a>
@@ -176,15 +176,15 @@ function DiagramNode({
         width={width}
         height="52"
         rx="8"
-        fill={accent ? "#FF684620" : "#0B0D10"}
-        stroke={accent ? "#FF6846" : "#2A2F37"}
+        fill={accent ? "var(--accent-subtle)" : "var(--background)"}
+        stroke={accent ? "var(--accent)" : "var(--control-border)"}
         strokeWidth="2"
       />
       <text
         x={x + width / 2}
         y={y + 33}
         textAnchor="middle"
-        fill={accent ? "#F4F2ED" : "#A6ABB3"}
+        fill={accent ? "var(--foreground)" : "var(--muted)"}
         fontSize="18"
         fontFamily="monospace"
       >
@@ -197,11 +197,12 @@ function DiagramNode({
 export function PowerUpArchitectureDiagram() {
   return (
     <div
-      className="overflow-hidden rounded-lg border border-border/70 bg-surface p-4 sm:p-6"
+      data-theme="light"
+      className="overflow-hidden rounded-lg border border-border/70 bg-background p-4 sm:p-6"
       aria-hidden="true"
     >
       <svg viewBox="0 0 760 360" className="h-auto w-full">
-        <g fill="none" stroke="#2A2F37" strokeWidth="2">
+        <g fill="none" stroke="var(--control-border)" strokeWidth="2">
           <path d="M380 76V132" />
           <path d="M380 190V244" />
           <path d="M140 244H620" />

@@ -55,7 +55,7 @@ export function ProjectMedia({ media, variant = "teaser" }: ProjectMediaProps) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g opacity="0.28" stroke="#2A2F37" strokeWidth="1">
+        <g opacity="0.28" stroke="var(--control-border)" strokeWidth="1">
           <path d="M72 196H486" />
           <path d="M118 154H440" />
           <path d="M160 112H398" />
@@ -65,24 +65,24 @@ export function ProjectMedia({ media, variant = "teaser" }: ProjectMediaProps) {
         </g>
         <path
           d="M118 174L268 96L426 152L276 226L118 174Z"
-          fill="#12151A"
-          stroke="#2A2F37"
+          fill="var(--surface)"
+          stroke="var(--control-border)"
           strokeWidth="1.5"
         />
         <path
           d="M190 148L268 108L350 136L274 174L190 148Z"
-          fill="#0B0D10"
-          stroke="#A6ABB3"
+          fill="var(--background)"
+          stroke="var(--muted)"
           strokeOpacity="0.34"
           strokeWidth="1.2"
         />
         <path
           d="M190 148V178L276 226M350 136V178L276 226M274 174V226"
-          stroke="#A6ABB3"
+          stroke="var(--muted)"
           strokeOpacity="0.2"
           strokeWidth="1.2"
         />
-        <g fill="#12151A" stroke="#2A2F37" strokeWidth="1.5">
+        <g fill="var(--surface)" stroke="var(--control-border)" strokeWidth="1.5">
           <rect x="202" y="124" width="52" height="30" rx="5" />
           <rect x="294" y="142" width="56" height="32" rx="5" />
           <circle cx="268" cy="96" r="8" />
@@ -90,11 +90,11 @@ export function ProjectMedia({ media, variant = "teaser" }: ProjectMediaProps) {
         </g>
         <path
           d="M252 140C288 120 328 124 366 148"
-          stroke="#FF6846"
+          stroke="var(--accent)"
           strokeLinecap="round"
           strokeWidth="2"
         />
-        <circle cx="374" cy="154" r="5" fill="#FF6846" />
+        <circle cx="374" cy="154" r="5" fill="var(--accent)" />
       </svg>
     </div>
   );

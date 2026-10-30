@@ -98,7 +98,7 @@ function CaseStudyHero({ project }: PortfolioV1CaseStudyProps) {
     <section className="mx-auto max-w-7xl px-6 pb-14 pt-10 sm:px-8 lg:px-12 lg:pb-16 lg:pt-14">
       <Link
         href="/#projects"
-        className="inline-flex items-center rounded-sm font-mono text-xs font-medium uppercase text-muted outline-none interactive-transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+        className="inline-flex items-center rounded-sm font-mono text-xs font-medium uppercase text-muted outline-none interactive-transition hover:text-foreground focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
         ← Back to projects
       </Link>
@@ -214,7 +214,8 @@ export function PortfolioV1CaseStudy({ project }: PortfolioV1CaseStudyProps) {
         </section>
 
         <section
-          className={sectionSpacing}
+          data-theme="light"
+          className={`${sectionSpacing} rounded-2xl bg-background text-foreground`}
           aria-labelledby="portfolio-v1-evolution-title"
         >
           <SectionHeading
