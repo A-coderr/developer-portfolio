@@ -8,7 +8,7 @@ const focusItems = [
 ] as const;
 
 const primaryStatement =
-  "I build software at the intersection of web, interactive systems and game development.";
+  "I build at the intersection of software, games, and creative technology.";
 
 export function About() {
   return (
@@ -32,17 +32,16 @@ export function About() {
 
             <div className="mt-5 space-y-3 text-sm leading-7 text-muted sm:text-base">
               <p>
-                My background spans full-stack web applications, interactive 3D
-                tooling, Unity/C# development, mobile research, and production
-                website ownership. I enjoy working on software where
-                architecture, usability, and technical problem-solving directly
-                shape the user experience.
+                My experience spans full-stack web applications, interactive 3D
+                tools, and Unity/C# game systems. I enjoy working through
+                technical problems and shaping the architecture that makes
+                those systems useful, reliable, and maintainable.
               </p>
               <p>
-                My current focus is strengthening my software-engineering depth
-                while continuing to develop gameplay and interactive 3D systems.
-                Over time, I&apos;m also building toward applied AI engineering
-                through structured learning and production-focused projects.
+                Anzhelika Lab is my space to explore new technologies, build
+                experiments, and share projects and lessons along the way. That
+                includes learning about AI through hands-on experiments,
+                alongside my ongoing work in web, interactive 3D, and games.
               </p>
             </div>
 

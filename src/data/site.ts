@@ -9,9 +9,9 @@ function normalizeSiteUrl(value: string) {
 export const siteConfig = {
   name: "Anzhelika Kostyuk Portfolio",
   author: "Anzhelika Kostyuk",
-  title: "Anzhelika Kostyuk | Software Developer",
+  title: "Anzhelika Kostyuk | Software Developer & Creative Technologist",
   description:
-    "Software developer building web applications, interactive 3D experiences, and Unity/C# game systems.",
+    "Anzhelika Kostyuk develops web applications, interactive 3D, and Unity/C# games. Explore her projects and experiments through Anzhelika Lab.",
   locale: "en_CA",
   ogImagePath: "/opengraph-image",
   url: normalizeSiteUrl(

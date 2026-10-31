@@ -16,13 +16,13 @@ vi.mock("./SkillsSphere", () => ({
 }));
 
 const primaryStatement =
-  "I build software at the intersection of web, interactive systems and game development.";
+  "I build at the intersection of software, games, and creative technology.";
 
 const backgroundParagraph =
-  "My background spans full-stack web applications, interactive 3D tooling, Unity/C# development, mobile research, and production website ownership. I enjoy working on software where architecture, usability, and technical problem-solving directly shape the user experience.";
+  "My experience spans full-stack web applications, interactive 3D tools, and Unity/C# game systems. I enjoy working through technical problems and shaping the architecture that makes those systems useful, reliable, and maintainable.";
 
-const futureAiParagraph =
-  "My current focus is strengthening my software-engineering depth while continuing to develop gameplay and interactive 3D systems. Over time, I'm also building toward applied AI engineering through structured learning and production-focused projects.";
+const labParagraph =
+  "Anzhelika Lab is my space to explore new technologies, build experiments, and share projects and lessons along the way. That includes learning about AI through hands-on experiments, alongside my ongoing work in web, interactive 3D, and games.";
 
 describe("About", () => {
   beforeEach(() => {
@@ -44,11 +44,11 @@ describe("About", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the professional narrative without current AI-engineer positioning", () => {
+  it("connects professional experience with personal experiments and AI learning", () => {
     render(<About />);
 
     expect(screen.getByText(backgroundParagraph)).toBeInTheDocument();
-    expect(screen.getByText(futureAiParagraph)).toBeInTheDocument();
+    expect(screen.getByText(labParagraph)).toBeInTheDocument();
     expect(screen.queryByText(/^AI Engineer$/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/^ML Engineer$/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/Machine Learning specialist/i)).not.toBeInTheDocument();

@@ -7,6 +7,17 @@ import { allProjects, getProjectHref } from "@/data/projects";
 import { absoluteUrl, siteConfig } from "@/data/site";
 
 describe("production SEO routes", () => {
+  it("balances professional expertise and Anzhelika Lab in descriptive metadata", () => {
+    expect(siteConfig.title).toBe(
+      "Anzhelika Kostyuk | Software Developer & Creative Technologist",
+    );
+    expect(siteConfig.description).toBe(
+      "Anzhelika Kostyuk develops web applications, interactive 3D, and Unity/C# games. Explore her projects and experiments through Anzhelika Lab.",
+    );
+    expect(siteConfig.author).toBe("Anzhelika Kostyuk");
+    expect(siteConfig.ogImagePath).toBe("/opengraph-image");
+  });
+
   it("generates an indexable robots policy with the sitemap URL", () => {
     expect(robots()).toEqual({
       rules: {

@@ -27,8 +27,8 @@ export function Hero() {
       className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-center gap-12 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.95fr)] lg:gap-16 lg:px-12 lg:py-24"
     >
       <div className="max-w-3xl">
-        <p className="font-mono text-xs font-medium uppercase text-muted">
-          SOFTWARE DEVELOPER
+        <p className="font-mono text-xs font-medium uppercase leading-5 text-muted">
+          SOFTWARE DEVELOPER &middot; CREATIVE TECHNOLOGIST
         </p>
 
         <p className="mt-8 text-2xl font-medium leading-8 text-foreground sm:text-3xl">
@@ -37,15 +37,20 @@ export function Hero() {
 
         <h1
           id="hero-title"
-          className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.08] text-foreground sm:text-5xl lg:text-6xl"
+          className="mt-5 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] text-foreground sm:text-5xl lg:text-6xl"
         >
-          Building web, <span className="text-accent">interactive 3D</span> and
-          game systems.
+          I build software, games, and{" "}
+          <span className="text-accent">things worth exploring.</span>
         </h1>
 
         <p className="mt-7 max-w-2xl text-lg leading-8 text-muted">
-          Software developer working across React/TypeScript applications,
-          Unity/C# gameplay systems, and interactive 3D tools.
+          I develop web applications, interactive 3D experiences, and Unity/C#
+          game systems. Through Anzhelika Lab, I share what I&apos;m building,
+          exploring, and learning along the way.
+        </p>
+
+        <p className="mt-5 font-mono text-sm font-medium text-accent">
+          Build. Play. Experiment.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">

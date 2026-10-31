@@ -10,10 +10,10 @@ import { describe, expect, it, vi } from "vitest";
 import { Contact } from "./Contact";
 
 const primaryStatement =
-  "Looking for an engineer who can work across software, interactive systems and gameplay?";
+  "Have a software role, project, or collaboration in mind?";
 
 const availabilityCopy =
-  "I'm currently open to full-time software engineering opportunities, including roles involving interactive 3D, Unity/C#, and gameplay systems.";
+  "I'm open to full-time software-development opportunities across web applications, interactive 3D, and game development.";
 
 function mockClipboard() {
   const writeText = vi.fn().mockResolvedValue(undefined);
@@ -42,10 +42,15 @@ describe("Contact", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders professional availability language without AI positioning", () => {
+  it("welcomes full-time roles and selected collaborations without AI positioning", () => {
     render(<Contact />);
 
     expect(screen.getByText(availabilityCopy)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "I also welcome selected technology and creative collaborations that connect with what I'm building and exploring through Anzhelika Lab.",
+      ),
+    ).toBeInTheDocument();
     expect(screen.queryByText(/AI Engineer/i)).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Machine Learning Engineer/i),
@@ -64,7 +69,7 @@ describe("Contact", () => {
     expect(draftUrl.pathname).toBe("kostyukanzhelika@gmail.com");
     expect(draftUrl.searchParams.get("subject")).toBe("Portfolio inquiry");
     expect(draftUrl.searchParams.get("body")).toContain(
-      "I came across your portfolio and would like to connect about a software engineering opportunity.",
+      "I came across your portfolio and would like to connect about a software role, project, or collaboration.",
     );
     expect(getInTouchLink).not.toHaveAttribute("target");
     expect(getInTouchLink).not.toHaveAttribute("rel");

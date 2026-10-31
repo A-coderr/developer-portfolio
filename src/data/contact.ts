@@ -20,7 +20,7 @@ const emailSubject = "Portfolio inquiry";
 const emailBody = [
   "Hi Anzhelika,",
   "",
-  "I came across your portfolio and would like to connect about a software engineering opportunity.",
+  "I came across your portfolio and would like to connect about a software role, project, or collaboration.",
   "",
   "Best,",
 ].join("\n");
