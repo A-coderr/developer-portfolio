@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 import { ContactEmailCta } from "./ContactEmailCta";
 
 const primaryStatement =
-  "Looking for an engineer who can work across software, interactive systems and gameplay?";
+  "Have a software role, project, or collaboration in mind?";
 
 const socialIcons: Record<SocialContactLink["label"], typeof GitHubIcon> = {
   GitHub: GitHubIcon,
@@ -33,9 +33,12 @@ export function Contact() {
 
         <div className="max-w-2xl lg:pt-8">
           <p className="text-base leading-8 text-muted sm:text-lg">
-            I&apos;m currently open to full-time software engineering
-            opportunities, including roles involving interactive 3D, Unity/C#,
-            and gameplay systems.
+            I&apos;m open to full-time software-development opportunities across
+            web applications, interactive 3D, and game development.
+          </p>
+          <p className="mt-4 text-base leading-8 text-muted sm:text-lg">
+            I also welcome selected technology and creative collaborations that
+            connect with what I&apos;m building and exploring through Anzhelika Lab.
           </p>
 
           <ContactEmailCta

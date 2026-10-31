@@ -9,9 +9,30 @@ describe("Hero", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Building web, interactive 3D and game systems.",
+        name: "I build software, games, and things worth exploring.",
       }),
     ).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+    expect(
+      screen.getByRole("region", {
+        name: "I build software, games, and things worth exploring.",
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("introduces the creator identity alongside the developer and her expertise", () => {
+    render(<Hero />);
+
+    expect(screen.getByText("Anzhelika Kostyuk")).toBeInTheDocument();
+    expect(
+      screen.getByText("SOFTWARE DEVELOPER · CREATIVE TECHNOLOGIST"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "I develop web applications, interactive 3D experiences, and Unity/C# game systems. Through Anzhelika Lab, I share what I'm building, exploring, and learning along the way.",
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Build. Play. Experiment.")).toBeInTheDocument();
   });
 
   it("links the primary call to action to the projects section", () => {
