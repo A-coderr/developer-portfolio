@@ -8,7 +8,10 @@ describe("Footer", () => {
 
     const footer = screen.getByRole("contentinfo");
 
-    expect(within(footer).getByText("AK.")).toBeInTheDocument();
+    expect(
+      within(footer).getByRole("img", { name: "Anzhelika Lab" }),
+    ).toHaveAttribute("src", expect.stringContaining("brand-icon"));
+    expect(within(footer).queryByText("AK.")).not.toBeInTheDocument();
     expect(
       within(footer).getByText("© 2026 Anzhelika Kostyuk"),
     ).toBeInTheDocument();
