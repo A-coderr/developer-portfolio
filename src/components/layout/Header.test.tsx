@@ -5,6 +5,18 @@ import { Header } from "./Header";
 const resumeHref = "/resume/resume_anzhelika_kostyuk.pdf";
 
 describe("Header", () => {
+  it("links the Anzhelika Lab wordmark to the homepage", () => {
+    render(<Header />);
+
+    const homeLink = screen.getByRole("link", { name: "Anzhelika Lab home" });
+
+    expect(homeLink).toHaveAttribute("href", "/");
+    expect(
+      within(homeLink).getByRole("img", { name: "Anzhelika Lab" }),
+    ).toHaveAttribute("src", expect.stringContaining("brand-icon"));
+    expect(screen.queryByText("AK.")).not.toBeInTheDocument();
+  });
+
   it("exposes the main navigation with accessible labels and section links", () => {
     render(<Header />);
 

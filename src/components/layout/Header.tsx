@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import brandIcon from "@/app/brand-icon.svg";
 import { resumeLink } from "@/data/contact";
 
 const navItems = [
@@ -47,10 +49,18 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-mono text-base font-semibold text-foreground outline-none interactive-transition hover:text-accent focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-          aria-label="Anzhelika Kostyuk home"
+          className="shrink-0 rounded-sm outline-none interactive-transition hover:opacity-80 focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          aria-label="Anzhelika Lab home"
         >
-          AK.
+          <Image
+            src={brandIcon}
+            alt="Anzhelika Lab"
+            width={180}
+            height={61}
+            className="h-auto w-36 object-contain lg:w-44"
+            loading="eager"
+            unoptimized
+          />
         </Link>
 
         <div className="hidden items-center gap-2 md:flex">
