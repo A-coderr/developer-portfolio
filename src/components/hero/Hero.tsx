@@ -74,7 +74,7 @@ export function Hero() {
 
       <div className="flex justify-center lg:justify-end">
         <Image
-          src="/images/hero/anzhelika-avatar.png"
+          src="/images/hero/anzhelika-avatar.webp"
           alt="Stylized 3D avatar of Anzhelika Kostyuk surrounded by software development technologies"
           width={1122}
           height={1402}
